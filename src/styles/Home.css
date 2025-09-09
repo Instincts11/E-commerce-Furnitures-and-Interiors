@@ -1,0 +1,1641 @@
+/* Hero Section */
+.hero {
+  position: relative; /* positioning context for absolutely positioned elements */
+  width: 100%;
+  display: flex;           /* place children side by side */
+  align-items: center;     /* vertical alignment */
+  justify-content: flex-start;
+  margin: 0;              /* remove any outer spacing */
+  margin-top: 0;          /* no gap below navbar */
+}
+
+/* Wraps the hero image so the rectangle can be centered over it */
+.hero-media {
+  position: relative;
+  display: inline-block;
+}
+
+.image-style {
+  position: relative;
+  left: 0;               /* align to left */
+  display: block;
+}
+
+/* Rectangle image + inner box */
+.rect-wrap {
+  position: absolute;
+  top: 175px;           /* keep approximate placement */
+  left: 648px;          /* moved 13% right from 594px (594px + 77px = 671px) */
+  width: 563px;         /* reduced by 12% (640px - 77px = 563px) */
+  /* let height be auto based on content */
+}
+
+.hero-rect {
+  position: absolute;
+  inset: 0;             /* fill the wrap */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Inner rectangular box with the same color as the image */
+.rect-inner {
+  --rect-color: #F8EAD6; /* adjust if needed to perfectly match */
+  position: relative;
+  background: var(--rect-color);
+  border-radius: 14px;
+  padding: 36px 44px;   /* main padding to match screenshot */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.rect-title {
+  position: static;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #374151;
+  font-family: 'Poppins', sans-serif;
+}
+
+.rect-subtitle {
+  position: static;
+  margin: 0 0 14px 0;
+  font-size: 48px;
+  font-weight: 800;
+  color: #6B7280;   /* muted gray like screenshot */
+  line-height: 1.1;
+}
+
+.rect-desc {
+  position: static;
+  margin: 0 0 22px 0;
+  max-width: 460px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* CTA button below the description */
+.rect-cta {
+  position: static;
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #FFE6D0; /* peach */
+  color: #111827;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rect-cta:hover { filter: brightness(0.98); }
+
+/* Tablet Styles (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Hero Section Tablet */
+  .image-style {
+    width: 100%;
+    height: auto;
+  }
+  
+  .rect-wrap {
+    left: 45%;
+    width: 50%;
+    top: 150px;
+  }
+  
+  .rect-inner {
+    padding: 32px 36px;
+  }
+  
+  .rect-subtitle {
+    font-size: 42px;
+  }
+  
+  /* Reasons Section Tablet */
+  .reasons-section {
+    padding: 0 24px 40px;
+  }
+  
+  .reasons-title {
+    font-size: 36px;
+  }
+  
+  .reasons-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .reason-card {
+    min-height: 120px;
+  }
+  
+  .reason-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .reason-icon.circle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Sale Section Tablet */
+  .sale-inner {
+    gap: 12%;
+  }
+  
+  .sale-text {
+    margin-left: 15%;
+  }
+  
+  .sale-headline {
+    font-size: 36px;
+  }
+  
+  /* What We Do Section Tablet */
+  .wwd-text {
+    width: 32%;
+  }
+  
+  .wwd-title {
+    font-size: 36px;
+  }
+  
+  .wwd-subtitle {
+    font-size: 24px;
+  }
+  
+  /* Products Section Tablet */
+  .products-section {
+    padding: 0 24px;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  /* Gallery Section Tablet */
+  .gallery-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0 10px;
+  }
+  
+  .gallery-img-1, .gallery-img-2, .gallery-img-3, 
+  .gallery-img-4, .gallery-img-5, .gallery-img-6, 
+  .gallery-img-7, .gallery-img-8, .gallery-img-9 {
+    position: static;
+    flex: 0 0 auto;
+    width: 200px;
+    height: 180px;
+    margin: 0;
+    transform: none;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Show only first 4 images on tablet */
+  .gallery-img-5, .gallery-img-6, .gallery-img-7, 
+  .gallery-img-8, .gallery-img-9 {
+    display: none;
+  }
+  
+  /* Community Section Tablet */
+  .community-card {
+    padding: 36px 28px;
+  }
+  
+  .community-text {
+    font-size: 26px;
+  }
+  
+  /* Footer Section Tablet */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+}
+
+/* Large Phones (481px - 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+  /* Hero Section Large Phones */
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+    padding: 0;
+  }
+  
+  .hero-media {
+    width: 100%;
+    position: relative;
+  }
+  
+  .image-style {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .rect-wrap {
+    position: static;
+    margin: 24px auto 0;
+    width: 85%;
+    max-width: 480px;
+  }
+  
+  .rect-inner {
+    padding: 24px 28px;
+  }
+  
+  .rect-subtitle {
+    font-size: 32px;
+  }
+  
+  .rect-desc {
+    font-size: 15px;
+  }
+  
+  /* Reasons Section Large Phones */
+  .reasons-section {
+    padding: 0 20px 36px;
+  }
+  
+  .reasons-title {
+    font-size: 28px;
+    margin: 32px 0 20px;
+  }
+  
+  /* Small Screens (320px - 480px) — Reasons layout */
+@media (max-width: 480px) {
+  /* Stack cards: Beds (full width), then Sofa, then Lamp */
+  .reasons-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .reason-card {
+    width: 100%;
+    padding: 14px 16px;
+    min-height: 140px; /* keep logo + text from collapsing */
+  }
+
+  /* Keep icon and text on one row; allow text to wrap */
+  .reason-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    min-height: 80px;
+    text-align: left;
+  }
+
+  .reason-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0; /* prevent icon from shrinking */
+  }
+  .reason-icon.circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .reason-card strong {
+    font-size: 13px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* keeps title tidy */
+  }
+
+  .reason-desc {
+    font-size: 11px;
+    line-height: 1.4;
+    white-space: normal;        /* allow wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;       /* multi-line clamp */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}
+  
+  /* Sale Section Large Phones */
+  .sale-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 20px;
+  }
+  
+  .sale-text {
+    margin-left: 0;
+    margin-bottom: 24px;
+  }
+  
+  .sale-headline {
+    font-size: 32px;
+  }
+  
+  .sale-image {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* What We Do Section Large Phones */
+  .wwd-section {
+    margin: 40px 0;
+  }
+  
+  .wwd-canvas {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 20px;
+  }
+  
+  .wwd-img {
+    position: static;
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 16px;
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  .wwd-text {
+    position: static;
+    width: 100%;
+    padding: 0;
+    order: -1;
+  }
+  
+  .wwd-title {
+    font-size: 28px;
+  }
+  
+  .wwd-subtitle {
+    font-size: 22px;
+  }
+  
+  .wwd-spacer, .wwd-blank {
+    height: 20px;
+  }
+  
+  /* Products Section Large Phones */
+  .products-section {
+    margin: 48px auto;
+    padding: 0 20px;
+  }
+  
+  .products-title {
+    font-size: 30px;
+    margin: 0 0 28px 0;
+  }
+  
+  .product-grid { 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .product-image {
+    height: 220px;
+  }
+  
+  .product-info {
+    padding: 10px 14px;
+  }
+  
+  .product-name {
+    font-size: 15px;
+  }
+  
+  .product-subtitle {
+    font-size: 12px;
+  }
+  
+  /* Gallery Section Large Phones */
+  .gallery-section {
+    padding: 40px 16px;
+  }
+  
+  .gallery-title {
+    font-size: 14px;
+  }
+  
+  .gallery-hashtag {
+    font-size: 26px;
+    margin: 0 0 24px;
+  }
+  
+  .gallery-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0 8px;
+  }
+  
+  .gallery-img-1, .gallery-img-2, .gallery-img-3, 
+  .gallery-img-4, .gallery-img-5, .gallery-img-6, 
+  .gallery-img-7, .gallery-img-8, .gallery-img-9 {
+    position: static;
+    flex: 0 0 auto;
+    width: 160px;
+    height: 200px;
+    margin: 0;
+    transform: none;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+  }
+  
+  /* Show only first 4 images on large phones */
+  .gallery-img-5, .gallery-img-6, .gallery-img-7, 
+  .gallery-img-8, .gallery-img-9 {
+    display: none;
+  }
+  
+  /* Reorder images: 1st, 3rd, 2nd, 4th (middle image at side) */
+  .gallery-img-1 { order: 1; }
+  .gallery-img-2 { order: 3; }
+  .gallery-img-3 { order: 2; }
+  .gallery-img-4 { order: 4; }
+  
+  /* Community Section Large Phones */
+  .community-section {
+    padding: 40px 16px;
+  }
+  
+  .community-card {
+    padding: 28px 24px;
+    border-radius: 14px;
+  }
+  
+  .community-title {
+    font-size: 13px;
+    margin: 0 0 10px 0;
+  }
+  
+  .community-text {
+    font-size: 22px;
+    margin: 6px 0;
+  }
+  
+  .community-btn {
+    margin-top: 16px;
+    padding: 12px 22px;
+    font-size: 15px;
+  }
+  
+  /* Footer Section Large Phones */
+  .footer-section {
+    padding: 40px 16px 24px;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  
+  .footer-brand {
+    margin-bottom: 20px;
+  }
+  
+  .footer-heading {
+    font-size: 15px;
+    margin: 0 0 12px 0;
+  }
+  
+  .footer-text {
+    font-size: 13px;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .newsletter-input {
+    padding: 12px 14px;
+  }
+  
+  .newsletter-btn {
+    padding: 12px 18px;
+    align-self: flex-start;
+    width: fit-content;
+  }
+}
+
+/* Small Screens (320px - 480px) */
+@media (max-width: 480px) {
+  /* Hero Section Small Screens */
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+    padding: 0;
+  }
+  
+  .hero-media {
+    width: 100%;
+    position: relative;
+  }
+  
+  .image-style {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+  }
+  
+  .rect-wrap {
+    position: static;
+    margin: 20px auto 0;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .rect-inner {
+    padding: 20px 24px;
+  }
+  
+  .rect-subtitle {
+    font-size: 24px;
+  }
+  
+  .rect-desc {
+    font-size: 14px;
+  }
+  
+  /* Reasons Section Small Screens */
+  .reasons-section {
+    padding: 0 16px 32px;
+  }
+  
+  .reasons-title {
+    font-size: 22px;
+    margin: 24px 0 16px;
+    line-height: 1.4;
+  }
+  
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .reason-card {
+    padding: 14px 16px;
+    min-height: 140px;
+  }
+  
+  .reason-card.beds {
+    grid-column: 1 / -1;
+    min-height: 100px;
+  }
+  
+  .reason-card.sofa {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .reason-card.lamp {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  
+  .reason-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    min-height: 80px;
+  }
+  
+  .reason-icon {
+    align-self: center;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .reason-icon.circle {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .reason-card strong {
+    font-size: 13px;
+    white-space: normal;
+  }
+  
+  .reason-desc {
+    font-size: 11px;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  
+  /* Sale Section Small Screens */
+  .sale-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 16px;
+  }
+  
+  .sale-text {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  
+  .sale-headline {
+    font-size: 28px;
+  }
+  
+  .sale-image {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  /* What We Do Section Small Screens */
+  .wwd-section {
+    margin: 32px 0;
+  }
+  
+  .wwd-canvas {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 16px;
+  }
+  
+  .wwd-img {
+    position: static;
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 12px;
+    max-height: 180px;
+    object-fit: cover;
+  }
+  
+  .wwd-text {
+    position: static;
+    width: 100%;
+    padding: 0;
+    order: -1;
+  }
+  
+  .wwd-title {
+    font-size: 24px;
+  }
+  
+  .wwd-subtitle {
+    font-size: 20px;
+  }
+  
+  .wwd-spacer, .wwd-blank {
+    height: 16px;
+  }
+  
+  .wwd-list li {
+    font-size: 14px;
+  }
+  
+  /* Products Section Small Screens */
+  .products-section {
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+  
+  .products-title {
+    font-size: 26px;
+    margin: 0 0 24px 0;
+  }
+  
+  .product-grid { 
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .product-image {
+    height: 250px;
+  }
+  
+  .product-info {
+    padding: 12px 16px;
+  }
+  
+  .product-name {
+    font-size: 16px;
+  }
+  
+  .product-subtitle {
+    font-size: 13px;
+  }
+  
+  /* Gallery Section Small Screens */
+  .gallery-section {
+    padding: 32px 12px 40px;
+  }
+  
+  .gallery-title {
+    font-size: 13px;
+  }
+  
+  .gallery-hashtag {
+    font-size: 24px;
+    margin: 0 0 20px;
+  }
+  
+  .gallery-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0 6px;
+  }
+  
+  .gallery-img-1, .gallery-img-2, .gallery-img-3, 
+  .gallery-img-4, .gallery-img-5, .gallery-img-6, 
+  .gallery-img-7, .gallery-img-8, .gallery-img-9 {
+    position: static;
+    flex: 0 0 auto;
+    width: 120px;
+    height: 180px;
+    margin: 0;
+    transform: none;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 6px;
+  }
+  
+  /* Show only first 4 images on small screens */
+  .gallery-img-5, .gallery-img-6, .gallery-img-7, 
+  .gallery-img-8, .gallery-img-9 {
+    display: none;
+  }
+  
+  /* Reorder images: 1st, 3rd, 2nd, 4th (middle image at side) */
+  .gallery-img-1 { order: 1; }
+  .gallery-img-2 { order: 3; }
+  .gallery-img-3 { order: 2; }
+  .gallery-img-4 { order: 4; }
+  
+  /* Community Section Small Screens */
+  .community-section {
+    padding: 32px 12px;
+  }
+  
+  .community-card {
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+  
+  .community-title {
+    font-size: 12px;
+    margin: 0 0 8px 0;
+  }
+  
+  .community-text {
+    font-size: 18px;
+    margin: 4px 0;
+  }
+  
+  .community-btn {
+    margin-top: 14px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  /* Footer Section Small Screens */
+  .footer-section {
+    padding: 32px 12px 20px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .footer-brand {
+    margin-bottom: 16px;
+  }
+  
+  .footer-heading {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+  }
+  
+  .footer-text {
+    font-size: 12px;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .newsletter-input {
+    padding: 10px 12px;
+  }
+  
+  .newsletter-btn {
+    padding: 10px 16px;
+    align-self: flex-start;
+    width: fit-content;
+  }
+}
+
+
+/* Right-side CTA in navbar */
+.nav-cta {
+  background-color: #FFE6D0; /* requested color */
+  color: #111827;
+  border: 1px solid #EBD4C2; /* subtle stroke like the image */
+  border-radius: 10px;       /* rounded rectangle, not full pill */
+  padding: 12px 24px;        /* larger padding to match screenshot */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-cta:hover {
+  filter: brightness(0.98);
+}
+
+/* Reasons Section */
+.reasons-title {
+  font-family: 'Urbanist', sans-serif;
+  text-align: center;
+  font-weight: 800;
+  color: #1F2937; /* dark slate for readability */
+  line-height: 1.3;
+  margin: 48px 0 24px;
+}
+
+.reasons-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px; /* space for underline */
+}
+
+.reasons-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 9px;
+  background: url('../public/image fill.png') repeat-x center;
+  background-size: contain;
+  border-radius: 2px;
+}
+
+/* Reasons grid layout */
+.reasons-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+
+.reason-card {
+  background: #ffffff;
+  border: 1px solid #E5E7EB; /* light gray */
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* Remove shadow and border from Sofa and Lamp cards */
+.reason-card.sofa,
+.reason-card.lamp {
+  box-shadow: none;
+  border: none;
+}
+
+.reason-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: nowrap;
+  min-height: 60px;
+}
+
+.reason-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  transform: translateY(-4px);
+  flex-shrink: 0;
+}
+
+/* For icons that need a circular peach background */
+.reason-icon.circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transform: translateY(-4px);
+  flex-shrink: 0;
+}
+
+.reason-icon.circle img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.reason-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.reason-card strong {
+  display: block;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reason-desc {
+  display: -webkit-box;
+  color: #6B7280;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* End of Season Sale */
+.sale-section {
+  margin: 56px 0;
+}
+
+.sale-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16%; /* space between text and image */
+  background: #F8EAD6; /* light peach like mock */
+  border-radius: 18px;
+  overflow: hidden;
+  padding: 36px 0 0; /* remove bottom padding so image can touch bottom */
+}
+
+.sale-text {
+  margin-left: 18%; /* start text 18% from the left side */
+  max-width: 420px;
+}
+
+.sale-eyebrow {
+  display: block;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: #9CA3AF;
+  margin-bottom: 10px;
+}
+
+.sale-headline {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600; /* semibold */
+  font-size: 40px;
+  color: #1F2937;
+  margin: 0 0 14px 0;
+  white-space: nowrap; /* keep 'Upto 60% Off' on the same line */
+}
+
+.sale-desc {
+  font-family: 'Poppins', sans-serif;
+  color: #60697B;
+  margin: 0;
+}
+
+.sale-image {
+  margin-left: auto; /* push image to right end */
+  width: min(52%, 720px);
+  height: auto;
+  display: block;
+  align-self: flex-end; /* sit on the bottom edge */
+  margin-bottom: -1px; /* avoid sub-pixel gap */
+}
+
+/* What We Do Section */
+.wwd-section {
+  margin: 80px 0;
+}
+
+.wwd-canvas {
+  position: relative;
+  min-height: 680px; /* anchor for percentage offsets */
+}
+
+.wwd-img {
+  position: absolute;
+  border-radius: 24px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* Main image: 28% from the left */
+.wwd-a {
+  left: 16%;
+  top: 0;
+  width: 34%;
+}
+
+/* Second image: below main, 17% from left */
+.wwd-b {
+  left: 5%;
+  top: 48%;
+  width: 27%; /* 10% smaller than previous 30% */
+}
+
+/* Third image: on top of the second image */
+.wwd-c {
+  left: 26%;
+  top: 68%;
+  width: 20.3%; /* 22% smaller than previous 26% */
+}
+
+/* Text block to the right of the main image (~12% right of it) */
+.wwd-text {
+  position: absolute;
+  left: calc(16% + 34% + 8%); /* 15% right from first card */
+  top: 4%;
+  width: 28%;
+}
+
+.wwd-title {
+  font-family: 'Exo', sans-serif;
+  font-weight: 800; /* ExtraBold */
+  font-size: 40px;
+  color: #0F172A;
+  margin: 0 0 10px 0;
+}
+
+.wwd-lead {
+  font-family: 'Exo', sans-serif;
+  font-weight: 400; /* Regular */
+  color: #60697B;
+  margin: 5% 0 0 0; /* 5% below the title */
+}
+
+.wwd-lead .wwd-line1,
+.wwd-lead .wwd-line2 {
+  display: block;
+  white-space: nowrap; /* keep each on a single line */
+}
+
+/* Blank space 20% height */
+.wwd-spacer { height: 20%; }
+
+.wwd-subtitle {
+  font-family: 'Exo', sans-serif;
+  font-weight: 800; /* ExtraBold */
+  font-size: 28px;
+  color: #0F172A;
+  margin: 5% 0 0 0; /* 5% below lead text */
+}
+
+.wwd-blank { height: 10%; }
+
+.wwd-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 14px 0 0 0; /* space above list */
+}
+
+.wwd-list li {
+  position: relative;
+  font-family: 'Exo', sans-serif;
+  color: #2B2F38;
+  line-height: 1.6;
+  padding-left: 26px; /* room for left icon */
+}
+
+.wwd-list li + li {
+  margin-top: 10px; /* vertical gap between items */
+}
+
+.wwd-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;              /* vertically align with text */
+  width: 16px;
+  height: 16px;
+  background: url('../public/f_icon.svg.png') no-repeat center / contain;
+}
+
+.wwd-btn {
+  margin-top: 5%;
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  background: #F8EAD6;
+  color: #60697B;
+  font-family: 'Exo', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+/* Our Products */
+.products-section {
+  max-width: 1000px; /* narrower to pull cards toward center */
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.products-title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  margin: 0 0 28px 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px; /* tighter gaps between rows and columns */
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0; /* remove rounded edges */
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.product-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0; /* ensure no rounding on the image itself */
+}
+
+.product-info {
+  background: #F4F5F7; /* required container color */
+  padding: 10px 14px; /* tighter to reduce overall height */
+}
+
+.product-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  height:auto; /* avoid reserving extra space */
+  color: #111827;
+  font-size: 16px;     /* smaller title */
+  line-height: 1.1;    /* tighter */
+  margin: 0;           /* remove extra vertical space */
+}
+
+.product-subtitle {
+  font-family: 'Poppins', sans-serif;
+  color: #6B7280; /* light color */
+  font-weight: 200;
+  height:auto; /* let content define height */
+  margin-top: 2px;     /* smaller gap to title */
+  font-size: 12px;     /* smaller subtitle */
+  line-height: 1.25;   /* tighter */
+}
+
+/* Smaller subtitle for the Respira card */
+.product-subtitle.subtitle-small {
+  font-size: 12px;   /* reduced size as requested */
+  line-height: 1.3;
+}
+
+
+/* Show More button */
+.show-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.show-more {
+  width: 200px;             /* reduced width */
+  height: 40px;             /* small height */
+  display: inline-flex;     /* center text precisely */
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #FFE6D0;/* border color */
+  background: #FFE6D0;      /* soft cream like the screenshot */
+  color: #8C8C8C;           /* text color */
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+
+.show-more:hover { filter: brightness(0.98); }
+
+/* ===================== */
+/* Gallery Section (white) */
+/* ===================== */
+.gallery-section {
+  padding: 56px 20px 64px 0; /* remove left padding so first column can be flush left */
+  background: #ffffff;
+}
+
+.gallery-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #6B7280;
+  text-align: center;
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+.gallery-hashtag {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #3A3A3A;
+  text-align: center;
+  margin: 0 0 28px;
+  line-height: 1.25;
+}
+
+/* shared image rules */
+.g-img {
+  width: 100%;
+  border-radius: 0;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Gallery Grid Layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 4px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Position each image in the grid */
+.gallery-img-1 { /* Shelving unit - tall left (img-36) */
+  grid-column: 1;
+  grid-row: 1;
+  width: 140px;
+  height: 290px;
+  object-fit: contain;
+  object-position: left top;
+  align-self: start;
+  justify-self: start;
+  margin-left: 39%;
+  margin-right: 8px;
+  position: relative;
+  z-index: 2;
+  box-shadow: none; /* Remove shadow effect */
+}
+
+.gallery-img-2 { /* Desk setup (img-38) */
+  grid-column: 1;
+  grid-row: 1;
+  width: 160%; /* Further increased width */
+  height: 240px;
+  object-fit: cover;
+  object-position: center bottom;
+  margin-left: 189px;
+  margin-top: 50px;
+  z-index: 1;
+}
+
+.gallery-img-3 { /* Dining room - center */
+  grid-column: 3;
+  grid-row: 1;
+  height: 270px; /* increased ~12% to extend downward */
+  object-fit: cover;
+  transform: translateX(-18%) translateY(40%); /* Move 18% left and 40% down */
+}
+
+.gallery-img-4 { /* Bedroom */
+  grid-column: 4;
+  grid-row: 1;
+  height: 240px;
+  object-fit: cover;
+  margin-top: 100px; /* Aligns bottom with img-45 */
+  transform: translateX(-16%) translateY(-8%); /* 16% left, 8% up from current */
+}
+
+.gallery-img-5 { /* Dining area - tall right */
+  grid-column: 5;
+  grid-row: 1;
+  height: 340px; /* Taller height, top-aligned */
+  object-fit: cover;
+  margin-top: 0; /* Align top with other cards */
+  transform: translateX(-12%) translateY(-6%); /* ~10% left, 8% up from current */
+}
+
+.gallery-img-6 { /* Chair */
+  grid-column: 1; /* move to far left */
+  grid-row: 2;
+  height: 280px; /* smaller height like in Share.png */
+  width: 140px; /* compact width */
+  object-fit: cover;
+  object-position: center 14%; /* Crop 9% from the top */
+  justify-self: start; /* align to left edge */
+  margin-left: 39%; /* match starting line column with Rectangle 36 */
+  transform: translateY(-19%); /* increase top height by 11% (from -8% to -19%) */
+}
+
+.gallery-img-7 { /* Stools */
+  grid-column: 2 / 4; /* span across columns to occupy full width */
+  grid-row: 2;
+  height: 200px; /* smaller height like in Share.png */
+  width: 175px;/* occupy entire width leaving space for Rectangle 40 */
+  object-fit: cover;
+  justify-self: start;
+  transform: translateY(-21%); /* raised by another 6% */
+  margin-left: 8px; /* proper spacing between 37 and 39 */
+  margin-right: 20px; /* space between Rectangle 40 */
+}
+
+.gallery-img-8 { /* Frame */
+  margin-left:-16%;
+  grid-column: 4;
+  grid-row: 2;
+  height: 230px; /* Increased bottom height by 15% (200px + 30px) */
+  width: 68%; /* Decrease right side width */
+  object-fit: cover;
+  transform: translateY(-5%); /* Increase top height by 5% */
+}
+
+.gallery-img-9 { /* Kitchen */
+  grid-column: 4; /* Move to same column as img-8 */
+  grid-row: 2;
+  height: 140px; /* Smaller height to fit properly */
+  width: 280px; /* Increased width per Share.png */
+  object-fit: cover;
+  justify-self: end; /* Align to right side */
+  transform: translateY(-5%) translateX(58%); /* Move 6% further right (55% + 6% = 61%) */
+}
+
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f3f5f7;
+  margin-top: 40px;
+}
+
+.cta-section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.cta-section p {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #666;
+}
+
+.cta-button {
+  background-color: #b88e2f;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #a17d29;
+}
+
+/* Join Our Community Section */
+.community-section {
+  padding: 64px 20px;
+  background: #ffffff; /* page background to blend with other sections */
+  display: flex;
+  justify-content: center;
+}
+
+.community-card {
+  background: #f8eeee; /* requested white card (#FFFFFF) */
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 40px 32px;
+  width: 100%;
+  max-width: 960px;
+  text-align: center;
+}
+
+.community-title {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600; /* SemiBold */
+  color: #848385;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  margin: 0 0 10px 0;
+}
+
+.community-text {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600; /* SemiBold */
+  color: #343F52;
+  font-size: 28px;
+  margin: 6px 0;
+}
+
+.community-btn {
+  margin-top: 18px;
+  display: inline-block;
+  padding: 12px 24px;
+  background: #FFE6D0; /* requested peach tone */
+  color: #848385;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600; /* SemiBold */
+  cursor: pointer;
+}
+
+.community-btn:hover { filter: brightness(0.98); }
+
+
+/* Footer Section */
+.footer-section {
+  background: #ffffff;
+  padding: 48px 20px 32px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.logoImg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.footer-brand-text {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  color: #111827;
+  font-size: 16px;
+}
+
+.footer-copyright,
+.footer-rights {
+  font-family: 'Urbanist', sans-serif;
+  color: #6B7280;
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-heading {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600;
+  color: #111827;
+  font-size: 16px;
+  margin: 0 0 16px 0;
+}
+
+.footer-text {
+  font-family: 'Urbanist', sans-serif;
+  color: #6B7280;
+  font-size: 14px;
+  margin: 2px 0;
+  line-height: 1.4;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.newsletter-input::placeholder {
+  color: #9CA3AF;
+}
+
+.newsletter-btn {
+  padding: 8px 16px;
+  background: #FFE6D0;
+  color: #848385;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.newsletter-btn:hover {
+  background: #374151;
+}
+
+/* Reduce gap between img107 and Beds text for small screens */
+@media (max-width: 480px) {
+  .beds-content {
+    gap: 2px !important;
+  }
+  .wwd-a,
+  .wwd-b,
+  .wwd-c {
+    display: none !important;
+  }
+  .wwd-text {
+    width: 100% !important;
+    position: static !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  .wwd-lead {
+    display: none !important;
+  }
+  .wwd-btn {
+    margin-bottom: 10px !important;
+  }
+  .products-section {
+    margin-top: 0 !important;
+  }
+  .product-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+}
